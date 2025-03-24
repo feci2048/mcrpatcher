@@ -5,7 +5,7 @@
 Modern ARM64 Linux kernels running 32-bit ARM (AArch32) binaries will log warnings like:
 
 ```
-uses deprecated CP15 Barrier instruction at 0x40fd0
+[<timestamp>] "<process name>" (<process PID>) uses deprecated CP15 Barrier instruction at <address>
 ```
 
 This tool automatically locates and patches these `MCR` barrier instructions, replacing them with the modern, architecturally-correct equivalents (`DMB SY`, `DSB SY`, `ISB`) directly in the binary.

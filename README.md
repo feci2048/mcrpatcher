@@ -43,6 +43,11 @@ This tool automatically locates and patches these `MCR` barrier instructions, re
 - Only barrier instructions are replaced; other `MCR` uses are ignored.
 - Binary must be an ELF file for ARM in 32-bit mode.
 - Always test patched binaries for correctness and stability.
+- Silencing the warnings might work with the appropriate kernel
+  ```bash
+  echo 'abi.cp15_barrier=2' > /etc/sysctl.d/99-cp15_barrier.conf
+  sysctl -p /etc/sysctl.d/99-cp15_barrier.conf
+  ```
 
 ## License
 
